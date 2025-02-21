@@ -135,8 +135,20 @@ PrefabInstance:
       value: wood_wall.017
       objectReference: {fileID: 0}
     - target: {fileID: 438776, guid: 03a3404dccc8da44da7eeb75bea469a3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 438776, guid: 03a3404dccc8da44da7eeb75bea469a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 438776, guid: 03a3404dccc8da44da7eeb75bea469a3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 438776, guid: 03a3404dccc8da44da7eeb75bea469a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.76
+      value: -4.261
       objectReference: {fileID: 0}
     - target: {fileID: 438776, guid: 03a3404dccc8da44da7eeb75bea469a3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -144,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 438776, guid: 03a3404dccc8da44da7eeb75bea469a3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.618
+      value: 3.221
       objectReference: {fileID: 0}
     - target: {fileID: 438776, guid: 03a3404dccc8da44da7eeb75bea469a3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1332,8 +1344,20 @@ PrefabInstance:
       value: wood_wall.000 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 466446, guid: 0e8932223c9ece344888d3b7fcadbe51, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 466446, guid: 0e8932223c9ece344888d3b7fcadbe51, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 466446, guid: 0e8932223c9ece344888d3b7fcadbe51, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 466446, guid: 0e8932223c9ece344888d3b7fcadbe51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.26
+      value: 2.897
       objectReference: {fileID: 0}
     - target: {fileID: 466446, guid: 0e8932223c9ece344888d3b7fcadbe51, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1341,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 466446, guid: 0e8932223c9ece344888d3b7fcadbe51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.92
+      value: 6.81
       objectReference: {fileID: 0}
     - target: {fileID: 466446, guid: 0e8932223c9ece344888d3b7fcadbe51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1962,6 +1986,18 @@ PrefabInstance:
       value: wood_wall_enter.005
       objectReference: {fileID: 0}
     - target: {fileID: 411480, guid: a8dcfb7f30f956445b28c2064fd4ea4d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 411480, guid: a8dcfb7f30f956445b28c2064fd4ea4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 411480, guid: a8dcfb7f30f956445b28c2064fd4ea4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 411480, guid: a8dcfb7f30f956445b28c2064fd4ea4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.691
       objectReference: {fileID: 0}
@@ -2019,8 +2055,20 @@ PrefabInstance:
       value: wood_wall.018
       objectReference: {fileID: 0}
     - target: {fileID: 417822, guid: 475f91a8cfc3bc84eb11ffdf5b14f6fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 417822, guid: 475f91a8cfc3bc84eb11ffdf5b14f6fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 417822, guid: 475f91a8cfc3bc84eb11ffdf5b14f6fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 417822, guid: 475f91a8cfc3bc84eb11ffdf5b14f6fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.79
+      value: -4.271
       objectReference: {fileID: 0}
     - target: {fileID: 417822, guid: 475f91a8cfc3bc84eb11ffdf5b14f6fe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2028,7 +2076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417822, guid: 475f91a8cfc3bc84eb11ffdf5b14f6fe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.4
+      value: 0.232
       objectReference: {fileID: 0}
     - target: {fileID: 417822, guid: 475f91a8cfc3bc84eb11ffdf5b14f6fe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2110,8 +2158,20 @@ PrefabInstance:
       value: wood_wall.001
       objectReference: {fileID: 0}
     - target: {fileID: 489140, guid: e35047180be454d4f96eeaa0ae1295c8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 489140, guid: e35047180be454d4f96eeaa0ae1295c8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 489140, guid: e35047180be454d4f96eeaa0ae1295c8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 489140, guid: e35047180be454d4f96eeaa0ae1295c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.23
+      value: 7.486
       objectReference: {fileID: 0}
     - target: {fileID: 489140, guid: e35047180be454d4f96eeaa0ae1295c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2119,7 +2179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 489140, guid: e35047180be454d4f96eeaa0ae1295c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.86
+      value: 11.212
       objectReference: {fileID: 0}
     - target: {fileID: 489140, guid: e35047180be454d4f96eeaa0ae1295c8, type: 3}
       propertyPath: m_LocalRotation.w
