@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewCustomerProblem", menuName = "Customer/Problem")]
 public class CustomerProblem : ScriptableObject
 {
-    public string problemDescription;
-    public string requiredEnchantment;
+    [TextArea] public string problemDescription;
+    public string[] requiredEffects;  // Effects needed for a "good" enchantment
+    public string[] validEnchants;     // Enchant that guarantee a "Perfect" score
+    public string positiveReaction;
+    public string negativeReaction;
 }

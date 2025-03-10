@@ -10,12 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3e82a0e33f5f954d8fc63a9cc99b275, type: 3}
-  m_Name: FireDragon
+  m_Name: IceWall 10
   m_EditorClassIdentifier: 
-  problemDescription: I'm off to slay a FIRE breathing beast! I need something to
-    cool me and extinguish the beast's flames!
-  requiredEffects:
-  - 
-  validEnchants: []
-  positiveReaction: 
-  negativeReaction: 
+  problemDescription: I need to break an ICE Wall
+  requiredEnchantment: Fire
