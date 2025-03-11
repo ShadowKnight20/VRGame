@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1504253759023738700}
   - component: {fileID: 8341953977500569107}
   - component: {fileID: 8698979093726956175}
+  - component: {fileID: -2606307247541103285}
   m_Layer: 0
   m_Name: PP_Theme_10_Dagger_002
   m_TagString: Untagged
@@ -327,6 +328,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rig: {fileID: 0}
   Environment: {fileID: 0}
+--- !u!114 &-2606307247541103285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323333351367080586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16002ba7d2254b3479183bb84456476f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionName: 
+  effects: []
 --- !u!1 &410187470618337200
 GameObject:
   m_ObjectHideFlags: 0

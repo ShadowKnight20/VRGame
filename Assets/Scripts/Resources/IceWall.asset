@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: IceWall
   m_EditorClassIdentifier: 
   problemDescription: I need to break an ICE Wall
-  requiredEnchantment: Fire
+  requiredEffects:
+  - Fire
+  validPotions: []
+  positiveReaction: Hot!
+  negativeReaction: Lame

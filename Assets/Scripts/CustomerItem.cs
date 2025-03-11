@@ -8,10 +8,10 @@ public class CustomerItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //string playerPotion = "Healing Potion";
-        //string[] potionEffects = { "Pain Relief", "Regeneration" };
+       // string playerPotion = "Fire Potion";
+       // string[] potionEffects = { "Fire", "Water" };
 
-        //string result = problemManager.GradePotion(playerPotion, potionEffects, currentProblem);
+       // string result = problemManager.GradePotion(playerPotion, potionEffects, currentProblem);
         //Debug.Log(result);
     }
 }

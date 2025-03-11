@@ -15,7 +15,7 @@ MonoBehaviour:
   problemDescription: I'm off to slay a FIRE breathing beast! I need something to
     cool me and extinguish the beast's flames!
   requiredEffects:
-  - 
-  validEnchants: []
-  positiveReaction: 
-  negativeReaction: 
+  - Water
+  validPotions: []
+  positiveReaction: Cool
+  negativeReaction: Bruh

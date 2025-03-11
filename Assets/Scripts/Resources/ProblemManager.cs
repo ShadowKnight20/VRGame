@@ -6,18 +6,23 @@ public class ProblemManager : MonoBehaviour
 {
     public List<CustomerProblem> customerProblems;
     public TextMeshProUGUI customerProblemText; // Drag & drop in Inspector
+    public CustomerNPC customer;
 
     void Start()
     {
         ShowNewProblem();
     }
-
     public void ShowNewProblem()
     {
         CustomerProblem newProblem = GetRandomProblem();
         if (newProblem != null)
         {
             customerProblemText.text = newProblem.problemDescription;
+            customer.currentProblem = newProblem; // Ensure the customer has a problem assigned
+        }
+        else
+        {
+            Debug.LogError("No problems available in customerProblems list!");
         }
     }
 
@@ -27,34 +32,51 @@ public class ProblemManager : MonoBehaviour
         return customerProblems[Random.Range(0, customerProblems.Count)];
     }
 
-    public string GradePotion(string playerPotion, string[] potionEffects, CustomerProblem problem)
+    public string GradePotion(string playerPotion, string[] potionEffects, CustomerProblem problem, out int moneyValue)
     {
-        // Check for perfect match
-        foreach (string validPotion in problem.validEnchants)
+        moneyValue = 0; // Default value
+
+        if (problem == null)
         {
-            if (playerPotion == validPotion)
+            Debug.LogError("GradePotion received a null problem!");
+            return "❌ Error: No problem assigned.";
+        }
+
+        // Check for a perfect potion
+        if (problem.validPotions != null)
+        {
+            foreach (string validPotion in problem.validPotions)
             {
-                return "⭐⭐⭐ Perfect! " + problem.positiveReaction;
+                if (playerPotion == validPotion)
+                {
+                    moneyValue = 100;
+                    return "⭐⭐⭐ Perfect! " + problem.positiveReaction;
+                }
             }
         }
 
-        // Check for acceptable match (contains all required effects)
+        // Check for an acceptable potion (contains required effects)
         bool containsAllEffects = true;
-        foreach (string requiredEffect in problem.requiredEffects)
+        if (problem.requiredEffects != null)
         {
-            if (!System.Array.Exists(potionEffects, effect => effect == requiredEffect))
+            foreach (string requiredEffect in problem.requiredEffects)
             {
-                containsAllEffects = false;
-                break;
+                if (!System.Array.Exists(potionEffects, effect => effect == requiredEffect))
+                {
+                    containsAllEffects = false;
+                    break;
+                }
             }
         }
 
         if (containsAllEffects)
         {
-            return "⭐⭐ Good! " + problem.positiveReaction;
+            moneyValue = 50;
+            return "⭐⭐ Acceptable! " + problem.positiveReaction;
         }
 
-        // If it fails both checks
+        // If the potion is incorrect
+        moneyValue = 10;
         return "❌ Bad! " + problem.negativeReaction;
     }
 }
