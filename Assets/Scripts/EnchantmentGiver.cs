@@ -11,6 +11,7 @@ public class EnchantmentGiver : MonoBehaviour
         foreach(var item in objects)
         {
             item.SetActive(objectName == item.name);
+            Debug.Log(item.name);
         }
     }
 }
