@@ -6175,8 +6175,8 @@ MonoBehaviour:
   movementSource: {fileID: 742805093}
   newPositionThresholdDistance: 0.05
   debugCubePrefab: {fileID: 2888672236691232311, guid: 0158c2a596db73f4ea41c31fc9bf6fde, type: 3}
-  creationMode: 1
-  newGestureName: 
+  creationMode: 0
+  newGestureName: Fire
   recognitionThreshold: 0.8
   OnRecognized:
     m_PersistentCalls:
@@ -8387,6 +8387,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1589975045699479349, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2387941917196606357, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.276
@@ -8427,6 +8431,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2400804262072905713, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471384516938911459, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: objects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8653817346125650753, guid: b3da30cd565283d4b8ee80515c8aec9a, type: 3}
+    - target: {fileID: 2471384516938911459, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: objects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8589443514286309017, guid: 8311ccefe9822c149afc2499a700bb3c, type: 3}
+    - target: {fileID: 2471384516938911459, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: objects.Array.data[3]
+      value: 
+      objectReference: {fileID: 6808583957099789300, guid: bd35afb388063bc4b9056d09e8378f99, type: 3}
+    - target: {fileID: 3110846083255520959, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3629877618846574650, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.16
@@ -8442,6 +8466,10 @@ PrefabInstance:
     - target: {fileID: 8298643499972616948, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467285673060002857, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9036801098826910670, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_Name
