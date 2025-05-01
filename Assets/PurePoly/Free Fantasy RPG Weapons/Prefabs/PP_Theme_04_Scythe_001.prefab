@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8699583845421759624}
   - component: {fileID: 4558524178716099878}
   - component: {fileID: -2464441004872925425}
+  - component: {fileID: 1224834754344279010}
   m_Layer: 0
   m_Name: PP_Theme_04_Scythe_001
   m_TagString: Untagged
@@ -287,3 +288,17 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &1224834754344279010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926703055965546900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16002ba7d2254b3479183bb84456476f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionName: 
+  effects: []

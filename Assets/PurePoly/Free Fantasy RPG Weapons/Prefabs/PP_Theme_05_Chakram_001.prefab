@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7820895780483836883}
   - component: {fileID: 343913030052744361}
   - component: {fileID: -7244391794578572401}
+  - component: {fileID: 5350782872579039083}
   m_Layer: 0
   m_Name: PP_Theme_05_Chakram_001
   m_TagString: Untagged
@@ -287,3 +288,17 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &5350782872579039083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5795407589716557517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16002ba7d2254b3479183bb84456476f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionName: 
+  effects: []

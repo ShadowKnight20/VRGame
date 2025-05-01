@@ -9,7 +9,6 @@ public class CustomerNPC : MonoBehaviour
     public Transform counterPoint;
     public float moveSpeed = 2f;
     public GameObject[] possibleIngredientPrefabs;
-    public Transform ingredientDropPoint;
     public CustomerProblem currentProblem;
 
     private bool reachedCounter = false;
@@ -50,11 +49,11 @@ public class CustomerNPC : MonoBehaviour
             GameObject ingredientPrefab = FindIngredientPrefab(ingredientName);
             if (ingredientPrefab != null)
             {
-                // Convert the drop point to world space
-                Vector3 worldPosition = ingredientDropPoint.TransformPoint(ingredientDropPoint.localPosition);
+                // Convert the counter's position to world space
+                Vector3 spawnPosition = GetPositionInFrontOfCustomer();
 
                 // Instantiate the ingredient in world space
-                Instantiate(ingredientPrefab, worldPosition, Quaternion.identity);
+                Instantiate(ingredientPrefab, spawnPosition, Quaternion.identity);
             }
         }
     }
@@ -129,6 +128,55 @@ public class CustomerNPC : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
             yield return null;
         }
+
+        // Once the customer reaches the counter, drop ingredients in front of them
+        DropRandomIngredientInFront();
+
         onComplete?.Invoke();
+    }
+
+    private void DropRandomIngredientInFront()
+    {
+        if (possibleIngredientPrefabs.Length == 0)
+        {
+            Debug.LogError("No ingredient prefabs assigned!");
+            return;
+        }
+
+        // Pick a random ingredient prefab from the list
+        GameObject randomIngredient = possibleIngredientPrefabs[Random.Range(0, possibleIngredientPrefabs.Length)];
+
+        if (randomIngredient != null)
+        {
+            // Get the spawn position in front of the customer
+            Vector3 spawnPosition = GetPositionInFrontOfCustomer();
+
+            // Log spawn position to confirm
+            Debug.Log("Spawning ingredient at position: " + spawnPosition);
+
+            // Instantiate the random ingredient at the spawn position
+            Instantiate(randomIngredient, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("No valid ingredient prefab found!");
+        }
+    }
+
+    private Vector3 GetPositionInFrontOfCustomer()
+    {
+        // Offset distance in front of the customer
+        float offsetDistance = -1f;
+
+        // Add an offset for height (for example, to ensure the item spawns above the ground)
+        float verticalOffset = 1f;  // Adjust this value to control the height
+
+        // Calculate the position in front of the customer by using their forward vector
+        Vector3 frontPosition = transform.position + transform.forward * offsetDistance;
+
+        // Add the vertical offset (elevation) to make sure it spawns higher
+        frontPosition.y += verticalOffset;
+
+        return frontPosition;
     }
 }

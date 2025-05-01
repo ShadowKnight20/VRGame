@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 831058615402535057}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1719177, y: 0.5660002, z: 3.4328203}
+  m_LocalPosition: {x: -1.771956, y: 0.566, z: 2.670507}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -129,8 +129,10 @@ MonoBehaviour:
   moveSpeed: 1
   possibleIngredientPrefabs:
   - {fileID: 323333351367080586, guid: 87b744073f89d274ea9986018a77d4e4, type: 3}
-  ingredientDropPoint: {fileID: 0}
-  currentProblem: {fileID: 11400000, guid: e09053e7e013979429a332c30c35eb16, type: 2}
+  - {fileID: 4228365931688133127, guid: a289b446aad1c354c849ab51a03a78ab, type: 3}
+  - {fileID: 8151969592506029295, guid: ac911dff3c449f54bbd04beffadcf9c1, type: 3}
+  - {fileID: 5795407589716557517, guid: 9214597ca565f5840be2b48f71eb9966, type: 3}
+  currentProblem: {fileID: 11400000, guid: 07886ca5992f20947b5688ae2c7b7348, type: 2}
 --- !u!1 &906474388931879790
 GameObject:
   m_ObjectHideFlags: 0
