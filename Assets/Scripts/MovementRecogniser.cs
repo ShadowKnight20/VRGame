@@ -130,9 +130,21 @@ public class MovementRecogniser : MonoBehaviour
             if (result.Score > recognitionThreshold)
             {
                 OnRecognized.Invoke(result.GestureClass);
+
+                // Dynamically find and trigger EnchantmentGiver
+                EnchantmentGiver giver = FindObjectOfType<EnchantmentGiver>();
+                if (giver != null)
+                {
+                    giver.Spawn(result.GestureClass);
+                }
+                else
+                {
+                    Debug.LogWarning("EnchantmentGiver not found in scene.");
+                }
             }
         }
     }
+
 
     void UpdateMovement()
     {

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnchantmentGiver : MonoBehaviour
@@ -40,6 +40,8 @@ public class EnchantmentGiver : MonoBehaviour
     {
         string key = objectName.Trim().ToLower();
 
+        Debug.Log("Entered Spawn");
+
         if (!objectLookup.TryGetValue(key, out GameObject target))
         {
             Debug.LogWarning($"No object matched: '{objectName}' (searched as '{key}')");
@@ -57,13 +59,40 @@ public class EnchantmentGiver : MonoBehaviour
 
         target.SetActive(true);
         Debug.Log("Activated: " + target.name);
+
+        // ✅ Get the Potion script on the parent of this EnchantmentGiver
+        Potion potion = transform.parent?.GetComponent<Potion>();
+        if (potion != null)
+        {
+            List<string> updatedEffects = new List<string>(potion.effects ?? new string[0]);
+
+            if (!updatedEffects.Contains(objectName))
+            {
+                updatedEffects.Add(objectName);
+                potion.effects = updatedEffects.ToArray();
+
+                Debug.Log("Effect added to potion: " + objectName);
+            }
+            else
+            {
+                Debug.Log("Effect already exists in potion: " + objectName);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No Potion script found on parent object.");
+        }
     }
+
+
 
     private bool IsInsideEnchantZone(GameObject obj)
     {
         if (enchantZone == null) return false;
 
-        Vector3 objPosition = obj.transform.position;
-        return enchantZone.bounds.Contains(objPosition);
+        // Use world position
+        Vector3 worldPos = obj.transform.position;
+        return enchantZone.bounds.Contains(worldPos);
     }
+
 }

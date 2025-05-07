@@ -39,7 +39,7 @@ public class ProblemManager : MonoBehaviour
         if (problem == null)
         {
             Debug.LogError("GradePotion received a null problem!");
-            return "❌ Error: No problem assigned.";
+            return " Error: No problem assigned.";
         }
 
         // Check for a perfect potion
@@ -50,7 +50,7 @@ public class ProblemManager : MonoBehaviour
                 if (playerPotion == validPotion)
                 {
                     moneyValue = 100;
-                    return "⭐⭐⭐ Perfect! " + problem.positiveReaction;
+                    return " Perfect!" + problem.positiveReaction;
                 }
             }
         }
