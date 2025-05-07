@@ -76,6 +76,13 @@ public class ShopItem : MonoBehaviour
             grabInteractable.enabled = true;
             Debug.Log("Item unlocked and now grabbable!");
         }
+
+        // Hide UI when unlocked
+        if (costText != null)
+            costText.gameObject.SetActive(false);
+
+        if (remainingText != null)
+            remainingText.gameObject.SetActive(false);
     }
 
     void UpdateUI()

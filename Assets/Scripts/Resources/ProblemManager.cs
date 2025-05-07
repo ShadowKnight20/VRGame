@@ -72,11 +72,11 @@ public class ProblemManager : MonoBehaviour
         if (containsAllEffects)
         {
             moneyValue = 50;
-            return "⭐⭐ Acceptable! " + problem.positiveReaction;
+            return " Acceptable! " + problem.positiveReaction;
         }
 
         // If the potion is incorrect
         moneyValue = 10;
-        return "❌ Bad! " + problem.negativeReaction;
+        return " Bad! " + problem.negativeReaction;
     }
 }
