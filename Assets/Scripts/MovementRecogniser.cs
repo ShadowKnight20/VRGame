@@ -11,15 +11,15 @@ public class MovementRecogniser : MonoBehaviour
 {
     public XRNode inputSource;
     public InputHelpers.Button inputButton;
-    public float inputThreshold = 0.1f;
+    public float inputThreshold;
     public Transform movementSource;
 
-    public float newPositionThresholdDistance = 0.05f;
+    public float newPositionThresholdDistance;
     public GameObject debugCubePrefab;
     public bool creationMode = true;
     public string newGestureName;
 
-    public float recognitionThreshold = 0.8f;
+    public float recognitionThreshold;
 
     [System.Serializable]
     public class UnityStringEvent : UnityEvent<string> { }
@@ -29,9 +29,21 @@ public class MovementRecogniser : MonoBehaviour
     private bool isMoving = false;
     private List<Vector3> positionsList = new List<Vector3>();
 
+    private string gestureSavePath;
+
     void Start()
     {
-        string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
+        // Set the save/load path inside Assets
+        gestureSavePath = Path.Combine(Application.dataPath, "RecordedSpells");
+
+        // Create the directory if it doesn’t exist
+        if (!Directory.Exists(gestureSavePath))
+        {
+            Directory.CreateDirectory(gestureSavePath);
+        }
+
+        // Load all gestures from that folder
+        string[] gestureFiles = Directory.GetFiles(gestureSavePath, "*.xml");
         foreach (var file in gestureFiles)
         {
             Gesture gesture = GestureIO.ReadGestureFromFile(file);
@@ -90,18 +102,12 @@ public class MovementRecogniser : MonoBehaviour
             return;
         }
 
-        // Convert positions to 2D screen points
+        // Convert world positions to 2D screen points
         Point[] pointArray = new Point[positionsList.Count];
         for (int i = 0; i < positionsList.Count; i++)
         {
             Vector3 screenPoint = Camera.main.WorldToScreenPoint(positionsList[i]);
             pointArray[i] = new Point(screenPoint.x, screenPoint.y, 0);
-        }
-
-        if (System.Array.Exists(pointArray, p => p == null))
-        {
-            Debug.LogError("Null point detected in gesture.");
-            return;
         }
 
         Gesture newGesture = new Gesture(pointArray);
@@ -111,14 +117,10 @@ public class MovementRecogniser : MonoBehaviour
             newGesture.Name = newGestureName;
             traningSet.Add(newGesture);
 
-            string directoryPath = "Assets/RecordedSpells";
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
-
-            string fileName = Path.Combine(directoryPath, newGestureName + ".xml");
+            string fileName = Path.Combine(gestureSavePath, newGestureName + ".xml");
             GestureIO.WriteGesture(pointArray, newGestureName, fileName);
+
+            Debug.Log($"Gesture '{newGestureName}' saved to: {fileName}");
         }
         else
         {
