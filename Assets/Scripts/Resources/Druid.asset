@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3e82a0e33f5f954d8fc63a9cc99b275, type: 3}
-  m_Name: BridgeBroke
+  m_Name: Druid
   m_EditorClassIdentifier: 
-  problemDescription: Bridge broke down, can you enchant my item to create a temporary
-    solution?
+  problemDescription: I'm a Druid and want some EARTHLY powers!
   requiredEffects:
-  - Ice
+  - Earth
   validPotions: []
   requiredIngredients: []
-  positiveReaction: Thanks
-  negativeReaction: Nah
+  positiveReaction: Thanks Flower!
+  negativeReaction: That Stinks!
