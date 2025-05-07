@@ -20,17 +20,19 @@ public class MagicDrawing : MonoBehaviour
 
     void Update()
     {
-        // Get hand position
-        handTransform.position = OVRInput.GetLocalControllerPosition(controller);
+        if (handTransform == null) return; // Safety check
+
+        // Get current hand position without changing the transform
+        Vector3 currentHandPosition = OVRInput.GetLocalControllerPosition(controller);
 
         // Check if trigger is held down
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, controller))
         {
             if (!isDrawing)
             {
-                StartDrawing();
+                StartDrawing(currentHandPosition);
             }
-            UpdateDrawing();
+            UpdateDrawing(currentHandPosition);
         }
         else if (isDrawing)
         {
@@ -38,17 +40,16 @@ public class MagicDrawing : MonoBehaviour
         }
     }
 
-    void StartDrawing()
+    void StartDrawing(Vector3 startPos)
     {
         isDrawing = true;
-        lineRenderer.positionCount = 0; // Reset line
-        lastPosition = handTransform.position;
+        lineRenderer.positionCount = 0;
+        lastPosition = startPos;
     }
 
-    void UpdateDrawing()
+    void UpdateDrawing(Vector3 newPos)
     {
-        Vector3 newPos = handTransform.position;
-        if (Vector3.Distance(lastPosition, newPos) > 0.01f) // Avoid redundant points
+        if (Vector3.Distance(lastPosition, newPos) > 0.01f)
         {
             lineRenderer.positionCount++;
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, newPos);

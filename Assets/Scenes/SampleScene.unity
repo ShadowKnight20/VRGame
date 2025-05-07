@@ -2545,6 +2545,7 @@ GameObject:
   - component: {fileID: 532421038}
   - component: {fileID: 532421036}
   - component: {fileID: 532421037}
+  - component: {fileID: 532421039}
   m_Layer: 5
   m_Name: Button Previous
   m_TagString: Untagged
@@ -2692,7 +2693,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 532421039}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
@@ -2765,6 +2766,33 @@ MonoBehaviour:
   m_UIHoverExited:
     m_PersistentCalls:
       m_Calls: []
+--- !u!54 &532421039
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532421031}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &536940709
 GameObject:
   m_ObjectHideFlags: 0
@@ -7984,16 +8012,16 @@ MonoBehaviour:
   movementSource: {fileID: 742805093}
   newPositionThresholdDistance: 0.05
   debugCubePrefab: {fileID: 100000, guid: 54d548b1a922d54449e2bd5424597d57, type: 3}
-  creationMode: 0
-  newGestureName: Fire
-  recognitionThreshold: 0.8
+  creationMode: 1
+  newGestureName: Water
+  recognitionThreshold: 0.5
   OnRecognized:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6959488405487524632}
         m_TargetAssemblyTypeName: EnchantmentGiver, Assembly-CSharp
         m_MethodName: Spawn
-        m_Mode: 5
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8510,6 +8538,7 @@ GameObject:
   - component: {fileID: 1764762986}
   - component: {fileID: 1764762987}
   - component: {fileID: 1764762985}
+  - component: {fileID: 1764762988}
   m_Layer: 5
   m_Name: Button Next
   m_TagString: Untagged
@@ -8636,7 +8665,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1764762988}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
@@ -8730,6 +8759,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 100, y: 100, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1764762988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764762980}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1772508092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10865,21 +10921,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1589975045699479349, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 958427683010660372, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2387941917196606357, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.276
+      value: -0.3475
       objectReference: {fileID: 0}
     - target: {fileID: 2387941917196606357, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.675
+      value: 1.339
       objectReference: {fileID: 0}
     - target: {fileID: 2387941917196606357, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.794
+      value: -0.4656
       objectReference: {fileID: 0}
     - target: {fileID: 2387941917196606357, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10909,10 +10965,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2400804262072905713, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2471384516938911459, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: objects.Array.data[1]
       value: 
@@ -10925,9 +10977,9 @@ PrefabInstance:
       propertyPath: objects.Array.data[3]
       value: 
       objectReference: {fileID: 6808583957099789300, guid: bd35afb388063bc4b9056d09e8378f99, type: 3}
-    - target: {fileID: 3110846083255520959, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 3205547685511937672, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.192
       objectReference: {fileID: 0}
     - target: {fileID: 3629877618846574650, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10939,7 +10991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832906561380397144, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.534
+      value: 1.681
       objectReference: {fileID: 0}
     - target: {fileID: 8298643499972616948, guid: 320b2718827851047ad5c17f7a16a3fd, type: 3}
       propertyPath: m_LocalPosition.z

@@ -29,24 +29,36 @@ public class MovementRecogniser : MonoBehaviour
     private bool isMoving = false;
     private List<Vector3> positionsList = new List<Vector3>();
 
-    // Start is called before the first frame update
     void Start()
     {
         string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
-        foreach (var item in gestureFiles)
+        foreach (var file in gestureFiles)
         {
-            traningSet.Add(GestureIO.ReadGestureFromFile(item));
+            Gesture gesture = GestureIO.ReadGestureFromFile(file);
+            if (IsValidGesture(gesture))
+            {
+                traningSet.Add(gesture);
+            }
+            else
+            {
+                Debug.LogWarning($"Skipped invalid gesture file: {file}");
+            }
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (movementSource == null)
+        {
+            Debug.LogError("Movement source is not set.");
+            return;
+        }
+
         InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out bool isPressed, inputThreshold);
 
         if (!isMoving && isPressed)
         {
-            startMovement();
+            StartMovement();
         }
         else if (isMoving && !isPressed)
         {
@@ -58,7 +70,7 @@ public class MovementRecogniser : MonoBehaviour
         }
     }
 
-    void startMovement()
+    void StartMovement()
     {
         isMoving = true;
         positionsList.Clear();
@@ -72,40 +84,47 @@ public class MovementRecogniser : MonoBehaviour
     {
         isMoving = false;
 
-        // Create gesture from position
-        Point[] pointArray = new Point[positionsList.Count];
+        if (positionsList.Count < 2)
+        {
+            Debug.LogWarning("Not enough points to create a gesture.");
+            return;
+        }
 
+        // Convert positions to 2D screen points
+        Point[] pointArray = new Point[positionsList.Count];
         for (int i = 0; i < positionsList.Count; i++)
         {
-            Vector2 screenPoint = Camera.main.WorldToScreenPoint(positionsList[i]);
+            Vector3 screenPoint = Camera.main.WorldToScreenPoint(positionsList[i]);
             pointArray[i] = new Point(screenPoint.x, screenPoint.y, 0);
         }
+
+        if (System.Array.Exists(pointArray, p => p == null))
+        {
+            Debug.LogError("Null point detected in gesture.");
+            return;
+        }
+
         Gesture newGesture = new Gesture(pointArray);
 
-        // Add new gesture to training set
         if (creationMode)
         {
             newGesture.Name = newGestureName;
             traningSet.Add(newGesture);
 
-            // Change save location to Assets/RecordedSpells
             string directoryPath = "Assets/RecordedSpells";
-            // Make sure the directory exists
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
             }
 
-            // Set the file path for saving
             string fileName = Path.Combine(directoryPath, newGestureName + ".xml");
-
-            // Save the gesture as an XML file inside the "RecordedSpells" folder
             GestureIO.WriteGesture(pointArray, newGestureName, fileName);
         }
         else
         {
             Result result = PointCloudRecognizer.Classify(newGesture, traningSet.ToArray());
-            Debug.Log(result.GestureClass + result.Score);
+            Debug.Log($"{result.GestureClass} ({result.Score})");
+
             if (result.Score > recognitionThreshold)
             {
                 OnRecognized.Invoke(result.GestureClass);
@@ -120,7 +139,17 @@ public class MovementRecogniser : MonoBehaviour
         if (Vector3.Distance(movementSource.position, lastPosition) > newPositionThresholdDistance)
         {
             positionsList.Add(movementSource.position);
-            Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity), 3);
+
+            if (debugCubePrefab)
+                Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity), 3);
         }
+    }
+
+    bool IsValidGesture(Gesture gesture)
+    {
+        return gesture != null &&
+               gesture.Points != null &&
+               gesture.Points.Length > 1 &&
+               !System.Array.Exists(gesture.Points, p => p == null);
     }
 }
